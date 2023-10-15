@@ -1,0 +1,14 @@
+FROM python:3.9.18-slim-bullseye
+
+WORKDIR /app
+
+COPY translate_send.py /app/
+COPY requirements.txt /app/
+
+RUN pip install -r requirements.txt
+
+# Expose the port on which your Flask app will run (adjust as needed)
+EXPOSE 5050
+
+# Define the command to run your application
+CMD ["python", "translate_send.py"]

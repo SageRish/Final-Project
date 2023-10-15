@@ -1,0 +1,11 @@
+# Use a base Nginx to serve UI
+FROM nginx:alpine
+
+# Copy your UI files to the appropriate directory in the image
+COPY . /usr/share/nginx/html
+
+# Expose the port your web server will listen on (typically 80 for HTTP)
+EXPOSE 80
+
+# Start the web server when the container is run
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,19 @@
+# docker-compose.yml
+version: "3"
+services:
+  frontend:
+    image: ui-service
+    ports:
+      - "8081:80"
+  backend:
+    image: backend-service
+    ports:
+      - "5000:5000"
+    depends_on:
+      - frontend
+  emailservice:
+    image: email-service
+    ports:
+      - "587:587"
+    depends_on:
+      - backend
